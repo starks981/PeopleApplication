@@ -7,9 +7,9 @@ public class Person {
 	private int age;
 	private String maritalStatus;
 	private String gender;
-	private static int totPeople = 0;
-	private static final int MAXPEOPLE = 3;
-	private static Person[] people = new Person[MAXPEOPLE];
+	protected static int totPeople = 0;
+	protected static final int MAXPEOPLE = 3;
+	protected static Person[] people = new Person[MAXPEOPLE];
 
 	// Default Constructor
 	Person() {
@@ -30,9 +30,9 @@ public class Person {
 	// Method that will return a person's full info or simply their first and last name
 	String personInfo(boolean bool1) {
 		if (bool1) {
-			return "Name: " + firstName + " " + lastName + "\nAge: " + age + "\nMarital Status: " + maritalStatus + "\nGender " + gender;
+			return toString() + "\n" + "Name: " + firstName + " " + lastName + "\nAge: " + age + "\nMarital Status: " + maritalStatus + "\nGender: " + gender;
 		} else {
-			return firstName + " " + lastName;
+			return toString() + ": " + firstName + " " + lastName;
 		}
 	}
 	// Method that will check to see if a passed in string equals the fullname of a Person
@@ -162,6 +162,10 @@ public class Person {
 		else {
 			return false;
 		}
+	}
+	// Override toString method
+	public String toString() {
+		return "Person";
 	}
 	
 }
